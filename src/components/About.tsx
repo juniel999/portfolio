@@ -36,7 +36,7 @@ const About = () => {
           <div className="space-y-8">
             <SectionHeading
               title="About Me"
-              subtitle="I'm a passionate full-stack developer with a keen eye for design and a strong focus on creating exceptional user experiences."
+              subtitle="Crafting digital experiences that merge creativity with technical excellence."
             />
             <motion.div
               variants={containerVariants}
@@ -45,25 +45,24 @@ const About = () => {
               <motion.div variants={itemVariants} className="flex gap-3 group">
                 <UserCircle2 className="w-6 h-6 text-primary-500 flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
                 <p className="group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
-                  Specialized in modern web development with React, Angular, and
-                  Next.js. I create responsive, accessible, and performant
-                  applications using TypeScript and modern frontend tools.
+                  Angular specialist bringing designs to life with pixel-perfect
+                  precision. Building exceptional web experiences that work for
+                  everyone.
                 </p>
               </motion.div>
               <motion.div variants={itemVariants} className="flex gap-3 group">
                 <Briefcase className="w-6 h-6 text-primary-500 flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
                 <p className="group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
-                  Full-stack engineer with expertise in Node.js, NestJS, and
-                  Laravel. Experienced in building scalable APIs and working
-                  with both SQL and NoSQL databases like PostgreSQL and MongoDB.
+                  Full-stack innovator crafting robust APIs and scalable
+                  architectures. Turning complex problems into elegant
+                  solutions.
                 </p>
               </motion.div>
               <motion.div variants={itemVariants} className="flex gap-3 group">
                 <Code2 className="w-6 h-6 text-primary-500 flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
                 <p className="group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
-                  DevOps enthusiast utilizing Docker, AWS, and Linux for
-                  deployment and scaling. Committed to best practices with Git
-                  version control and continuous integration workflows.
+                  DevOps enthusiast championing automated workflows and clean
+                  code. Always learning, always improving.
                 </p>
               </motion.div>
             </motion.div>
