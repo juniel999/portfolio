@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { useScrollTo } from "../hooks/useScrollTo";
+import GitHubCalendar from "react-github-calendar";
+import { useThemeStore } from "../store/useThemeStore";
 
 const Hero = () => {
   const scrollTo = useScrollTo();
+  const { theme } = useThemeStore();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -111,14 +114,17 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="section-container">
+      <div className="section-container w-full px-4">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="show"
-          className="max-w-4xl relative"
+          className="w-full max-w-4xl relative mx-auto"
         >
-          <motion.div variants={itemVariants} className="inline-block">
+          <motion.div
+            variants={itemVariants}
+            className="inline-block w-full flex justify-start"
+          >
             <motion.div
               className="relative inline-flex items-center gap-2"
               whileHover={{ scale: 1.02 }}
@@ -192,30 +198,101 @@ const Hero = () => {
 
           <motion.h1
             variants={itemVariants}
-            className="mt-6 text-5xl sm:text-6xl md:text-7xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-primary-800 to-gray-600 dark:from-white dark:via-primary-300 dark:to-gray-400"
+            className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-primary-800 to-gray-600 dark:from-primary-100 dark:via-primary-500 dark:to-gray-600 text-start"
           >
-            @hssn.dev
+            Full-Stack Developer.
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="mt-6 text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed"
+            className="mt-6 text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl text-start"
           >
-            Hi, I'm Juniel Husain👋. A Full-Stack Developer passionate about
-            building innovative digital experiences with clean code and
-            intuitive design.
+            Hi! I'm{" "}
+            <motion.span
+              className="relative inline-block font-semibold bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 dark:from-primary-300 dark:via-primary-400 dark:to-primary-500 bg-clip-text text-transparent"
+              whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.2 },
+              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.5,
+                  delay: 0.2,
+                },
+              }}
+            >
+              <motion.span
+                className="absolute -inset-1 rounded-lg bg-primary-100 dark:bg-primary-900/30"
+                initial={{ opacity: 0 }}
+                whileHover={{
+                  opacity: 0.3,
+                  transition: { duration: 0.2 },
+                }}
+              />
+              Juniel Husain
+            </motion.span>
+            {". "}I craft sleek, high-performance web apps with Angular and
+            NestJS. Let’s build something great.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="mt-8 flex flex-wrap gap-4"
+            className="mt-6 sm:mt-8 w-full overflow-hidden rounded-lg p-2 sm:p-4 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 w-min"
+          >
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "flex-start",
+              }}
+            >
+              <GitHubCalendar
+                username="juniel999"
+                colorScheme={theme}
+                fontSize={window.innerWidth < 640 ? 8 : 12}
+                blockSize={window.innerWidth < 640 ? 6 : 8}
+                blockMargin={window.innerWidth < 640 ? 2 : 3}
+                transformData={(contributions) => {
+                  if (window.innerWidth < 640) {
+                    // Get only the last 9 months of data
+                    return contributions.slice(-270); // Approximately 10 months (30 days * 10)
+                  }
+                  return contributions;
+                }}
+                style={{
+                  ...(theme === "dark" ? { color: "rgb(148, 163, 184)" } : {}),
+                  maxWidth: "100%",
+                  flexGrow: 1,
+                }}
+                hideColorLegend
+                hideMonthLabels={false}
+                theme={{
+                  light: [
+                    "#ebedf0",
+                    "#9be9a8",
+                    "#40c463",
+                    "#30a14e",
+                    "#216e39",
+                  ],
+                  dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+                }}
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="mt-8 flex flex-wrap md:gap-4 gap-2 justify-start"
           >
             <motion.a
               href="#work"
               onClick={(e) => handleNavClick(e, "work")}
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="group relative inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white px-8 py-3.5 rounded-2xl font-semibold shadow-lg shadow-primary-500/25 transition-all hover:shadow-xl hover:shadow-primary-500/30 overflow-hidden"
+              className="group relative inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-2xl font-semibold shadow-lg shadow-primary-500/25 transition-all hover:shadow-xl hover:shadow-primary-500/30 overflow-hidden"
             >
               <span className="relative z-10">View My Work</span>
               <motion.span
@@ -237,7 +314,7 @@ const Hero = () => {
               onClick={(e) => handleNavClick(e, "contact")}
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="relative inline-flex items-center gap-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 px-8 py-3.5 rounded-2xl font-semibold shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50 transition-all hover:shadow-xl border border-gray-100 dark:border-gray-700"
+              className="relative inline-flex items-center gap-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 px-4 py-2 rounded-2xl font-semibold shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50 transition-all hover:shadow-xl border border-gray-100 dark:border-gray-700"
             >
               Contact Me
             </motion.a>
@@ -245,7 +322,7 @@ const Hero = () => {
 
           <motion.div
             variants={itemVariants}
-            className="mt-12 flex items-center gap-6"
+            className="mt-12 flex items-center gap-6 justify-start"
           >
             {socialLinks.map((link) => (
               <motion.a
@@ -279,7 +356,7 @@ const Hero = () => {
           repeat: Infinity,
           repeatType: "reverse",
         }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-4 left-2/3 -translate-x-1/2"
       >
         <div className="flex flex-col items-center gap-3">
           <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
