@@ -1,9 +1,6 @@
 export const initializeTheme = () => {
   if (typeof window !== "undefined") {
     const root = window.document.documentElement;
-    const initialColorValue = root.style.getPropertyValue(
-      "--initial-color-mode"
-    );
 
     // Check if the user has a stored theme preference
     const storedTheme = localStorage.getItem("theme-storage");
@@ -16,13 +13,8 @@ export const initializeTheme = () => {
         root.classList.remove("dark");
       }
     } else {
-      // If no stored preference, check system preference
-      const systemPrefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      if (systemPrefersDark) {
-        root.classList.add("dark");
-      }
+      // No stored preference, default to dark theme
+      root.classList.add("dark");
     }
   }
 };
