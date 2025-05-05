@@ -1,17 +1,5 @@
-import { Heart } from "lucide-react";
-import { useScrollTo } from "../hooks/useScrollTo";
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const scrollTo = useScrollTo();
-
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    e.preventDefault();
-    scrollTo(href);
-  };
 
   return (
     <footer>
