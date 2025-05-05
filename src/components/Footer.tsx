@@ -18,7 +18,7 @@ const Footer = () => {
       <div className="section-container">
         <div className="flex items-center w-full justify-center">
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            © {currentYear} Your Name. All rights reserved.
+            © {currentYear} Juniel Husain. All rights reserved.
           </p>
         </div>
       </div>
