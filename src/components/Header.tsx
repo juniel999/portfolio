@@ -179,16 +179,6 @@ const Header = () => {
                     </a>
                   ))}
                   <button
-                    onClick={() => {
-                      setIsMenuOpen(false);
-                      setIsKeyboardShortcutsOpen(true);
-                    }}
-                    className="flex items-center gap-2 text-sm font-medium"
-                    aria-label="Show keyboard shortcuts (Alt + H)"
-                  >
-                    <Keyboard className="w-4 h-4" /> Keyboard Shortcuts
-                  </button>
-                  <button
                     onClick={handleThemeToggle}
                     className="flex items-center gap-2 text-sm font-medium"
                     aria-label={`Switch to ${
