@@ -3,6 +3,7 @@ import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { useScrollTo } from "../hooks/useScrollTo";
 import GitHubCalendar from "react-github-calendar";
 import { useThemeStore } from "../store/useThemeStore";
+import meImage from "../assets/me.jpg";
 
 const Hero = () => {
   const scrollTo = useScrollTo();
@@ -196,47 +197,71 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          <motion.h1
-            variants={itemVariants}
-            className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-primary-800 to-gray-600 dark:from-primary-100 dark:via-primary-500 dark:to-gray-600 text-start"
-          >
-            Full-Stack Developer.
-          </motion.h1>
-
-          <motion.p
-            variants={itemVariants}
-            className="mt-6 text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl text-start"
-          >
-            Hi! I'm{" "}
-            <motion.span
-              className="relative inline-block font-semibold bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 dark:from-primary-300 dark:via-primary-400 dark:to-primary-500 bg-clip-text text-transparent"
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.2 },
-              }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  delay: 0.2,
-                },
-              }}
+          <div className="mt-4 flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-8">
+            <motion.div
+              variants={itemVariants}
+              className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 order-first md:order-last md:mx-0"
             >
-              <motion.span
-                className="absolute -inset-1 rounded-lg bg-primary-100 dark:bg-primary-900/30"
-                initial={{ opacity: 0 }}
-                whileHover={{
-                  opacity: 0.3,
-                  transition: { duration: 0.2 },
+              <motion.div
+                className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-500/10 dark:from-primary-400/20 dark:to-primary-400/10 backdrop-blur-sm -rotate-6"
+                animate={{
+                  rotate: [-6, 6, -6],
+                  scale: [0.98, 1.02, 0.98],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
                 }}
               />
-              Juniel Husain
-            </motion.span>
-            {". "}I craft sleek, high-performance web apps with Angular and
-            NestJS. Let’s build something great.
-          </motion.p>
+              <motion.div
+                className="absolute inset-0 rounded-2xl overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+              >
+                <img
+                  src={meImage}
+                  alt="Juniel Husain"
+                  className="w-full h-full object-cover filter saturate-[0.85] contrast-[1.1]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary-500/10 to-transparent mix-blend-overlay" />
+              </motion.div>
+            </motion.div>
+
+            <div className="flex-1">
+              <motion.h1
+                variants={itemVariants}
+                className="mt-2 md:mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-primary-800 to-gray-600 dark:from-primary-100 dark:via-primary-500 dark:to-gray-600 text-start"
+              >
+                Full-Stack Developer.
+              </motion.h1>
+
+              <motion.p
+                variants={itemVariants}
+                className="mt-6 text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl text-start"
+              >
+                Hi! I'm{" "}
+                <motion.span
+                  className="relative inline-block font-semibold bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 dark:from-primary-300 dark:via-primary-400 dark:to-primary-500 bg-clip-text text-transparent"
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.2 },
+                  }}
+                >
+                  <motion.span
+                    className="absolute -inset-1 rounded-lg bg-primary-100 dark:bg-primary-900/30"
+                    initial={{ opacity: 0 }}
+                    whileHover={{
+                      opacity: 0.3,
+                      transition: { duration: 0.2 },
+                    }}
+                  />
+                  Juniel Husain
+                </motion.span>
+                {". "}I craft sleek, high-performance web apps with Angular and
+                NestJS. Let’s build something great.
+              </motion.p>
+            </div>
+          </div>
 
           <motion.div
             variants={itemVariants}
