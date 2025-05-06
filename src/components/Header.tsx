@@ -159,7 +159,7 @@ const Header = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="absolute top-full left-0 right-0 bg-white dark:bg-gray-900 border-t dark:border-gray-800 md:hidden"
+                className="absolute top-full left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-t dark:border-gray-800 md:hidden"
                 role="dialog"
                 aria-label="Navigation menu"
               >
