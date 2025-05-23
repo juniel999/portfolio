@@ -4,6 +4,7 @@ import { Code2, Briefcase, UserCircle2, ExternalLink } from "lucide-react";
 import { techStack } from "../data/techStack";
 import SectionHeading from "./common/SectionHeading";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
+import resumePDF from "../assets/juniel_husain_resume.pdf";
 
 const About = () => {
   const { elementRef, isInView } = useIntersectionObserver({
@@ -68,7 +69,7 @@ const About = () => {
             </motion.div>
 
             <motion.a
-              href="/path-to-your-resume.pdf"
+              href={resumePDF}
               target="_blank"
               rel="noopener noreferrer"
               variants={itemVariants}
